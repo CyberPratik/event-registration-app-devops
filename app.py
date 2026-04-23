@@ -7,8 +7,12 @@ def register():
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
-        return f"Registration Successful! Name: {name}, Email: {email}"
+        event = request.form['event']
+
+        return f"<h2>Thank you {name} for registering for {event}!</h2><p>Confirmation sent to {email}</p>"
+
     return render_template('index.html')
 
+
 if __name__ == '__main__':
-        app.run(host='0.0.0.0',port=5000)
+    app.run(host='0.0.0.0', port=5000)
